@@ -5,11 +5,12 @@ import Link from "next/link";
 import { Menu, X, Code2 } from "lucide-react";
 
 const navLinks = [
-  { label: "Services", href: "#services" },
-  { label: "About", href: "#about" },
-  { label: "Portfolio", href: "#portfolio" },
-  { label: "Blog", href: "#blog" },
-  { label: "Contact", href: "#contact" },
+  { label: "Services", href: "/#services" },
+  { label: "About", href: "/#about" },
+  { label: "Portfolio", href: "/#portfolio" },
+  { label: "Pricing", href: "/pricing" },
+  { label: "Blog", href: "/#blog" },
+  { label: "Contact", href: "/#contact" },
 ];
 
 export default function Navbar() {
@@ -64,10 +65,10 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-4">
           <a
-            href="#contact"
-            className="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-105"
+            href="/#contact"
+            className="px-4 py-2 rounded-lg text-sm font-semibold text-white transition-opacity duration-200 hover:opacity-90"
             style={{
-              background: "linear-gradient(135deg, #6366f1, #4f46e5)",
+              background: "var(--accent)",
             }}
           >
             Get Started
@@ -87,7 +88,7 @@ export default function Navbar() {
       {isOpen && (
         <div
           className="md:hidden px-6 pb-6 flex flex-col gap-4"
-          style={{ background: "var(--bg-secondary)" }}
+          style={{ background: "var(--bg-secondary)", borderTop: "1px solid var(--border)" }}
         >
           {navLinks.map((link) => (
             <a
@@ -101,9 +102,9 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            href="#contact"
+            href="/#contact"
             className="px-4 py-2 rounded-lg text-sm font-semibold text-white text-center"
-            style={{ background: "linear-gradient(135deg, #6366f1, #4f46e5)" }}
+            style={{ background: "var(--accent)" }}
             onClick={() => setIsOpen(false)}
           >
             Get Started

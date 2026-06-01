@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import { ExternalLink, GitBranch } from "lucide-react";
+import Link from "next/link";
 
 const categories = ["All", "Web", "Mobile", "Cloud", "AI"];
 
@@ -9,50 +10,50 @@ const projects = [
   {
     title: "FinTrack Pro",
     category: "Web",
-    description: "Real-time financial analytics platform serving 50,000+ users with live market data and portfolio management.",
+    description:
+      "Real-time financial analytics platform serving 50,000+ users with live market data and portfolio management.",
     tech: ["Next.js", "PostgreSQL", "WebSocket"],
     color: "#6366f1",
-    bg: "from-indigo-900/40 to-blue-900/40",
   },
   {
     title: "MedConnect",
     category: "Mobile",
-    description: "Telemedicine app connecting patients with doctors via video, messaging, and prescription management.",
+    description:
+      "Telemedicine app connecting patients with doctors via video, messaging, and prescription management.",
     tech: ["React Native", "Node.js", "Firebase"],
     color: "#22d3ee",
-    bg: "from-cyan-900/40 to-teal-900/40",
   },
   {
     title: "CloudOps Suite",
     category: "Cloud",
-    description: "Infrastructure automation platform for managing multi-cloud deployments with one-click provisioning.",
+    description:
+      "Infrastructure automation platform for managing multi-cloud deployments with one-click provisioning.",
     tech: ["Kubernetes", "Terraform", "Go"],
     color: "#a78bfa",
-    bg: "from-purple-900/40 to-pink-900/40",
   },
   {
     title: "InsightAI",
     category: "AI",
-    description: "Predictive analytics engine using ML to forecast demand and optimize supply chains for retail.",
+    description:
+      "Predictive analytics engine using ML to forecast demand and optimize supply chains for retail.",
     tech: ["Python", "TensorFlow", "FastAPI"],
     color: "#34d399",
-    bg: "from-emerald-900/40 to-green-900/40",
   },
   {
     title: "LogiX Platform",
     category: "Web",
-    description: "End-to-end logistics management system with real-time tracking, routing optimization, and driver app.",
+    description:
+      "End-to-end logistics management system with real-time tracking, routing optimization, and driver app.",
     tech: ["React", "GraphQL", "Redis"],
     color: "#f59e0b",
-    bg: "from-amber-900/40 to-orange-900/40",
   },
   {
     title: "ShopNow",
     category: "Mobile",
-    description: "Feature-rich e-commerce mobile app with AR product preview and personalized recommendations.",
+    description:
+      "Feature-rich e-commerce mobile app with AR product preview and personalized recommendations.",
     tech: ["Flutter", "Dart", "AWS"],
     color: "#ec4899",
-    bg: "from-pink-900/40 to-rose-900/40",
   },
 ];
 
@@ -65,41 +66,39 @@ export default function Portfolio() {
   return (
     <section id="portfolio" className="py-24" style={{ background: "var(--bg-secondary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-12">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-4"
-            style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.3)",
-              color: "#818cf8",
-            }}
-          >
-            Our Work
+        <div className="flex flex-col md:flex-row md:items-end justify-between mb-10 gap-6">
+          <div>
+            <h2
+              className="font-bold"
+              style={{
+                fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+                lineHeight: 1.15,
+                letterSpacing: "-0.01em",
+                color: "var(--text-primary)",
+              }}
+            >
+              Selected work
+            </h2>
           </div>
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
+          <Link
+            href="/pricing"
+            className="text-sm font-medium transition-colors duration-150 hover:text-white shrink-0"
+            style={{ color: "var(--accent)" }}
           >
-            Featured <span className="gradient-text">Projects</span>
-          </h2>
-          <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
-          >
-            A selection of projects we&apos;re proud to have delivered.
-          </p>
+            View engagement options →
+          </Link>
         </div>
 
-        <div className="flex justify-center gap-2 mb-10 flex-wrap">
+        <div className="flex gap-2 mb-8 flex-wrap">
           {categories.map((cat) => (
             <button
               key={cat}
               onClick={() => setActive(cat)}
-              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200"
+              className="px-4 py-2 rounded-lg text-sm font-medium transition-all duration-150"
               style={
                 active === cat
                   ? {
-                      background: "linear-gradient(135deg, #6366f1, #4f46e5)",
+                      background: "var(--accent)",
                       color: "#fff",
                     }
                   : {
@@ -114,29 +113,32 @@ export default function Portfolio() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
           {filtered.map((project) => (
-            <div
+            <article
               key={project.title}
-              className="group relative rounded-2xl overflow-hidden transition-all duration-300 card-glow"
+              className="group rounded-2xl overflow-hidden transition-all duration-200 card-glow"
               style={{
                 background: "var(--bg-card)",
                 border: "1px solid var(--border)",
               }}
             >
               <div
-                className={`h-40 bg-gradient-to-br ${project.bg} flex items-center justify-center`}
+                className="h-32 flex items-center justify-center"
+                style={{ background: `${project.color}08` }}
               >
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-2xl font-bold text-white"
+                <span
+                  className="font-bold select-none"
                   style={{
-                    background: `${project.color}30`,
-                    border: `1px solid ${project.color}50`,
-                    color: project.color,
+                    fontSize: "3.5rem",
+                    lineHeight: 1,
+                    color: `${project.color}50`,
+                    letterSpacing: "-0.04em",
                   }}
+                  aria-hidden="true"
                 >
                   {project.title[0]}
-                </div>
+                </span>
               </div>
 
               <div className="p-6">
@@ -145,14 +147,14 @@ export default function Portfolio() {
                     <span
                       className="text-xs font-medium px-2 py-0.5 rounded-md mb-2 inline-block"
                       style={{
-                        background: `${project.color}15`,
+                        background: `${project.color}12`,
                         color: project.color,
                       }}
                     >
                       {project.category}
                     </span>
                     <h3
-                      className="text-lg font-bold"
+                      className="text-lg font-semibold"
                       style={{ color: "var(--text-primary)" }}
                     >
                       {project.title}
@@ -162,14 +164,14 @@ export default function Portfolio() {
                     <button
                       className="p-1.5 rounded-lg transition-colors hover:bg-white/10"
                       style={{ color: "var(--text-muted)" }}
-                      aria-label="View repository"
+                      aria-label={`View ${project.title} repository`}
                     >
                       <GitBranch size={14} />
                     </button>
                     <button
                       className="p-1.5 rounded-lg transition-colors hover:bg-white/10"
                       style={{ color: "var(--text-muted)" }}
-                      aria-label="View live"
+                      aria-label={`View ${project.title} live`}
                     >
                       <ExternalLink size={14} />
                     </button>
@@ -189,7 +191,7 @@ export default function Portfolio() {
                       key={t}
                       className="px-2 py-0.5 rounded-md text-xs font-medium"
                       style={{
-                        background: "rgba(255,255,255,0.05)",
+                        background: "rgba(255,255,255,0.04)",
                         color: "var(--text-muted)",
                         border: "1px solid var(--border)",
                       }}
@@ -199,11 +201,11 @@ export default function Portfolio() {
                   ))}
                 </div>
               </div>
-            </div>
+            </article>
           ))}
         </div>
 
-        <div className="text-center mt-10">
+        <div className="mt-10">
           <a
             href="#contact"
             className="inline-flex items-center gap-2 px-6 py-3 rounded-xl font-medium transition-all duration-200 hover:bg-white/5"
@@ -212,7 +214,7 @@ export default function Portfolio() {
               border: "1px solid var(--border)",
             }}
           >
-            View All Projects
+            Discuss your project
             <ExternalLink size={14} />
           </a>
         </div>

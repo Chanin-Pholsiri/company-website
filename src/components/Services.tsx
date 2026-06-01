@@ -1,39 +1,33 @@
 "use client";
 
-import { Globe, Smartphone, Cloud, Brain, ArrowRight } from "lucide-react";
-
 const services = [
   {
-    icon: Globe,
-    title: "Web Development",
+    id: "web",
+    name: "Web Development",
     description:
-      "High-performance web applications built with modern frameworks. From landing pages to complex enterprise platforms, we deliver pixel-perfect, scalable solutions.",
-    features: ["Next.js / React", "TypeScript", "REST & GraphQL APIs", "SEO Optimized"],
-    color: "#6366f1",
+      "High-performance web applications built with modern frameworks. From marketing sites to complex enterprise platforms, we ship production-ready code that handles real traffic.",
+    features: ["Next.js / React", "TypeScript", "REST & GraphQL APIs", "SEO-ready"],
   },
   {
-    icon: Smartphone,
-    title: "Mobile App Development",
+    id: "mobile",
+    name: "Mobile App Development",
     description:
-      "Native and cross-platform mobile apps for iOS and Android. We build intuitive, fast, and reliable apps that users love.",
-    features: ["React Native", "Flutter", "iOS & Android", "App Store Publishing"],
-    color: "#22d3ee",
+      "Native and cross-platform apps for iOS and Android. We build apps that are fast, reliable, and go through proper review processes without shortcuts.",
+    features: ["React Native", "Flutter", "iOS & Android", "App Store publishing"],
   },
   {
-    icon: Cloud,
-    title: "Cloud & Infrastructure",
+    id: "cloud",
+    name: "Cloud & Infrastructure",
     description:
-      "Scalable cloud architecture designed for reliability and performance. From DevOps pipelines to microservices, we handle your infrastructure.",
-    features: ["AWS / GCP / Azure", "Docker & Kubernetes", "CI/CD Pipelines", "99.9% Uptime SLA"],
-    color: "#a78bfa",
+      "Scalable cloud architecture designed for reliability and cost control. From CI/CD pipelines to Kubernetes clusters, we manage infrastructure that stays up.",
+    features: ["AWS / GCP / Azure", "Docker & Kubernetes", "CI/CD", "99.9% uptime SLA"],
   },
   {
-    icon: Brain,
-    title: "Data & AI Solutions",
+    id: "ai",
+    name: "Data & AI",
     description:
-      "Turn your data into competitive advantage. We build ML models, data pipelines, and AI-powered features that automate and optimize your business.",
-    features: ["Machine Learning", "Data Analytics", "LLM Integration", "Predictive Models"],
-    color: "#34d399",
+      "ML models, data pipelines, and AI-powered features that automate real workflows. We integrate LLMs and build predictive models that produce measurable results.",
+    features: ["Machine learning", "Data analytics", "LLM integration", "Predictive models"],
   },
 ];
 
@@ -41,98 +35,87 @@ export default function Services() {
   return (
     <section id="services" className="py-24" style={{ background: "var(--bg-secondary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-4"
+        <div className="mb-16">
+          <h2
+            className="font-bold mb-4"
             style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.3)",
-              color: "#818cf8",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
+              color: "var(--text-primary)",
             }}
           >
-            What We Do
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Our <span className="gradient-text">Services</span>
+            What we build
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
+            className="text-lg"
+            style={{ color: "var(--text-secondary)", maxWidth: "52ch" }}
           >
-            End-to-end technology solutions tailored to accelerate your digital transformation.
+            Four disciplines, one team. We work across the full stack so
+            you don&apos;t have to coordinate between vendors.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {services.map((service) => {
-            const Icon = service.icon;
-            return (
-              <div
-                key={service.title}
-                className="group relative p-8 rounded-2xl transition-all duration-300 card-glow cursor-pointer"
-                style={{
-                  background: "var(--bg-card)",
-                  border: "1px solid var(--border)",
-                }}
-              >
+        <div style={{ borderTop: "1px solid var(--border)" }}>
+          {services.map((service, i) => (
+            <div
+              key={service.id}
+              className="grid grid-cols-1 lg:grid-cols-12 gap-6 py-10"
+              style={{
+                borderBottom: "1px solid var(--border)",
+              }}
+            >
+              <div className="lg:col-span-4">
                 <div
-                  className="w-12 h-12 rounded-xl flex items-center justify-center mb-6 transition-transform duration-300 group-hover:scale-110"
-                  style={{
-                    background: `${service.color}15`,
-                    border: `1px solid ${service.color}30`,
-                  }}
+                  className="text-xs font-medium tabular-nums mb-3"
+                  style={{ color: "var(--text-muted)" }}
+                  aria-hidden="true"
                 >
-                  <Icon size={22} style={{ color: service.color }} />
+                  0{i + 1}
                 </div>
-
                 <h3
-                  className="text-xl font-bold mb-3"
-                  style={{ color: "var(--text-primary)" }}
+                  className="text-xl font-semibold"
+                  style={{ color: "var(--text-primary)", lineHeight: 1.25 }}
                 >
-                  {service.title}
+                  {service.name}
                 </h3>
-
+              </div>
+              <div className="lg:col-span-5">
                 <p
-                  className="text-sm leading-relaxed mb-6"
-                  style={{ color: "var(--text-secondary)" }}
+                  className="text-sm leading-relaxed"
+                  style={{ color: "var(--text-secondary)", maxWidth: "50ch" }}
                 >
                   {service.description}
                 </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {service.features.map((feat) => (
-                    <span
-                      key={feat}
-                      className="px-2.5 py-1 rounded-md text-xs font-medium"
-                      style={{
-                        background: `${service.color}10`,
-                        color: service.color,
-                        border: `1px solid ${service.color}20`,
-                      }}
-                    >
-                      {feat}
-                    </span>
-                  ))}
-                </div>
-
-                <a
-                  href="#contact"
-                  className="inline-flex items-center gap-1.5 text-sm font-medium transition-all duration-200 group-hover:gap-2.5"
-                  style={{ color: service.color }}
-                >
-                  Learn more <ArrowRight size={14} />
-                </a>
-
-                <div
-                  className="absolute bottom-0 left-0 right-0 h-px opacity-0 group-hover:opacity-100 transition-opacity duration-300"
-                  style={{ background: `linear-gradient(90deg, transparent, ${service.color}, transparent)` }}
-                />
               </div>
-            );
-          })}
+              <div className="lg:col-span-3 flex flex-wrap gap-2 lg:justify-end lg:items-start">
+                {service.features.map((feat) => (
+                  <span
+                    key={feat}
+                    className="px-2.5 py-1 rounded-md text-xs font-medium"
+                    style={{
+                      background: "rgba(99,102,241,0.08)",
+                      color: "var(--accent)",
+                      border: "1px solid rgba(99,102,241,0.18)",
+                    }}
+                  >
+                    {feat}
+                  </span>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="mt-10">
+          <a
+            href="#contact"
+            className="inline-flex items-center gap-2 text-sm font-medium transition-colors duration-150 hover:text-white"
+            style={{ color: "var(--accent)" }}
+          >
+            Talk to us about your project
+            <span aria-hidden="true">→</span>
+          </a>
         </div>
       </div>
     </section>

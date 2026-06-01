@@ -23,33 +23,28 @@ export default function Contact() {
   return (
     <section id="contact" className="py-24" style={{ background: "var(--bg-secondary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-4"
+        <div className="mb-16">
+          <h2
+            className="font-bold mb-4"
             style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.3)",
-              color: "#818cf8",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
+              color: "var(--text-primary)",
             }}
           >
-            Get in Touch
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Start Your <span className="gradient-text">Project</span>
+            Start a project
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
+            className="text-lg"
+            style={{ color: "var(--text-secondary)", maxWidth: "50ch" }}
           >
-            Tell us about your project. We&apos;ll get back to you within 24 hours.
+            Tell us what you&apos;re building. We&apos;ll get back to you within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8">
-          <div className="lg:col-span-2 flex flex-col gap-6">
+          <div className="lg:col-span-2 flex flex-col gap-5">
             {contactInfo.map((info) => {
               const Icon = info.icon;
               return (
@@ -62,10 +57,10 @@ export default function Contact() {
                   }}
                 >
                   <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center shrink-0"
-                    style={{ background: `${info.color}15` }}
+                    className="w-9 h-9 rounded-xl flex items-center justify-center shrink-0"
+                    style={{ background: `${info.color}12` }}
                   >
-                    <Icon size={18} style={{ color: info.color }} />
+                    <Icon size={16} style={{ color: info.color }} aria-hidden="true" />
                   </div>
                   <div>
                     <div
@@ -86,17 +81,18 @@ export default function Contact() {
             })}
 
             <div
-              className="p-5 rounded-xl mt-2"
+              className="p-5 rounded-xl"
               style={{
-                background: "linear-gradient(135deg, rgba(99,102,241,0.1), rgba(34,211,238,0.1))",
-                border: "1px solid rgba(99,102,241,0.2)",
+                background: "rgba(99,102,241,0.06)",
+                border: "1px solid rgba(99,102,241,0.15)",
               }}
             >
               <p
                 className="text-sm leading-relaxed"
                 style={{ color: "var(--text-secondary)" }}
               >
-                We typically respond within <strong style={{ color: "var(--text-primary)" }}>2 business hours</strong>.
+                We typically respond within{" "}
+                <strong style={{ color: "var(--text-primary)" }}>2 business hours</strong>.
                 For urgent projects, mention it in your message.
               </p>
             </div>
@@ -113,18 +109,20 @@ export default function Contact() {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
               <div className="flex flex-col gap-2">
                 <label
+                  htmlFor="contact-name"
                   className="text-xs font-medium"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  Full Name *
+                  Full name *
                 </label>
                 <input
+                  id="contact-name"
                   type="text"
                   required
                   value={form.name}
                   onChange={(e) => setForm({ ...form, name: e.target.value })}
-                  placeholder="John Doe"
-                  className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500/30"
+                  placeholder="Alex Chen"
+                  className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-150 focus:ring-2 focus:ring-indigo-500/30"
                   style={{
                     background: "var(--bg-primary)",
                     border: "1px solid var(--border)",
@@ -134,18 +132,20 @@ export default function Contact() {
               </div>
               <div className="flex flex-col gap-2">
                 <label
+                  htmlFor="contact-email"
                   className="text-xs font-medium"
                   style={{ color: "var(--text-secondary)" }}
                 >
-                  Email Address *
+                  Work email *
                 </label>
                 <input
+                  id="contact-email"
                   type="email"
                   required
                   value={form.email}
                   onChange={(e) => setForm({ ...form, email: e.target.value })}
-                  placeholder="john@company.com"
-                  className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500/30"
+                  placeholder="alex@company.com"
+                  className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-150 focus:ring-2 focus:ring-indigo-500/30"
                   style={{
                     background: "var(--bg-primary)",
                     border: "1px solid var(--border)",
@@ -157,17 +157,19 @@ export default function Contact() {
 
             <div className="flex flex-col gap-2">
               <label
+                htmlFor="contact-company"
                 className="text-xs font-medium"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Company / Organization
+                Company
               </label>
               <input
+                id="contact-company"
                 type="text"
                 value={form.company}
                 onChange={(e) => setForm({ ...form, company: e.target.value })}
                 placeholder="Your company name"
-                className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500/30"
+                className="px-4 py-3 rounded-xl text-sm outline-none transition-all duration-150 focus:ring-2 focus:ring-indigo-500/30"
                 style={{
                   background: "var(--bg-primary)",
                   border: "1px solid var(--border)",
@@ -178,18 +180,20 @@ export default function Contact() {
 
             <div className="flex flex-col gap-2">
               <label
+                htmlFor="contact-message"
                 className="text-xs font-medium"
                 style={{ color: "var(--text-secondary)" }}
               >
-                Tell us about your project *
+                What are you building? *
               </label>
               <textarea
+                id="contact-message"
                 required
                 rows={5}
                 value={form.message}
                 onChange={(e) => setForm({ ...form, message: e.target.value })}
-                placeholder="Describe your project, requirements, and timeline..."
-                className="px-4 py-3 rounded-xl text-sm outline-none resize-none transition-all duration-200 focus:ring-2 focus:ring-indigo-500/30"
+                placeholder="Describe the problem you're solving, what you need built, and your timeline..."
+                className="px-4 py-3 rounded-xl text-sm outline-none resize-none transition-all duration-150 focus:ring-2 focus:ring-indigo-500/30"
                 style={{
                   background: "var(--bg-primary)",
                   border: "1px solid var(--border)",
@@ -200,21 +204,19 @@ export default function Contact() {
 
             <button
               type="submit"
-              className="flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-white transition-all duration-200 hover:opacity-90 hover:scale-[1.02]"
+              className="flex items-center justify-center gap-2 py-3.5 rounded-xl font-semibold text-white transition-opacity duration-150 hover:opacity-90"
               style={{
-                background: sent
-                  ? "linear-gradient(135deg, #34d399, #059669)"
-                  : "linear-gradient(135deg, #6366f1, #4f46e5)",
-                boxShadow: "0 0 20px rgba(99,102,241,0.2)",
+                background: sent ? "#059669" : "var(--accent)",
+                boxShadow: sent ? "none" : "0 0 20px rgba(99,102,241,0.2)",
               }}
             >
               {sent ? (
                 <>
-                  <CheckCircle2 size={16} /> Message Sent!
+                  <CheckCircle2 size={16} aria-hidden="true" /> Message sent
                 </>
               ) : (
                 <>
-                  <Send size={16} /> Send Message
+                  <Send size={16} aria-hidden="true" /> Send message
                 </>
               )}
             </button>

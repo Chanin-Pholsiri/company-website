@@ -37,32 +37,28 @@ export default function TechStack() {
   return (
     <section className="py-24" style={{ background: "var(--bg-primary)" }}>
       <div className="max-w-7xl mx-auto px-6">
-        <div className="text-center mb-16">
-          <div
-            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-xs font-medium mb-4"
+        <div className="mb-16">
+          <h2
+            className="font-bold mb-4"
             style={{
-              background: "rgba(99,102,241,0.1)",
-              border: "1px solid rgba(99,102,241,0.3)",
-              color: "#818cf8",
+              fontSize: "clamp(1.75rem, 3vw, 2.5rem)",
+              lineHeight: 1.15,
+              letterSpacing: "-0.01em",
+              color: "var(--text-primary)",
             }}
           >
-            Technology
-          </div>
-          <h2
-            className="text-4xl md:text-5xl font-bold mb-4"
-            style={{ color: "var(--text-primary)" }}
-          >
-            Our <span className="gradient-text">Tech Stack</span>
+            Our tech stack
           </h2>
           <p
-            className="text-lg max-w-2xl mx-auto"
-            style={{ color: "var(--text-secondary)" }}
+            className="text-lg"
+            style={{ color: "var(--text-secondary)", maxWidth: "52ch" }}
           >
-            We use battle-tested, cutting-edge technologies to deliver robust and scalable solutions.
+            Tools chosen for reliability, community support, and fitness
+            for the problem. We don&apos;t chase trends; we use what works.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {stacks.map((stack) => (
             <div
               key={stack.category}
@@ -74,8 +70,8 @@ export default function TechStack() {
             >
               <div className="flex items-center gap-3 mb-5">
                 <div
-                  className="w-2.5 h-2.5 rounded-full"
-                  style={{ background: stack.color, boxShadow: `0 0 10px ${stack.color}` }}
+                  className="w-2 h-2 rounded-full shrink-0"
+                  style={{ background: stack.color }}
                 />
                 <h3
                   className="font-semibold text-sm"
@@ -88,9 +84,9 @@ export default function TechStack() {
                 {stack.techs.map((tech) => (
                   <span
                     key={tech}
-                    className="px-3 py-1.5 rounded-lg text-xs font-medium"
+                    className="px-2.5 py-1.5 rounded-lg text-xs font-medium"
                     style={{
-                      background: `${stack.color}10`,
+                      background: `${stack.color}0d`,
                       color: stack.color,
                       border: `1px solid ${stack.color}20`,
                     }}

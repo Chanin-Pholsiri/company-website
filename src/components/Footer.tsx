@@ -64,8 +64,8 @@ export default function Footer() {
               className="text-sm leading-relaxed mb-6 max-w-xs"
               style={{ color: "var(--text-muted)" }}
             >
-              Building world-class digital solutions for ambitious companies.
-              From MVP to enterprise scale.
+              Full-stack engineering for companies that need software
+              built to last. From MVP to production scale.
             </p>
             <div className="flex gap-3">
               {socials.map((s) => {

@@ -1,0 +1,236 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-06-01T00:00:00.000Z",
+  "title": "Design System: TechCorp",
+  "extensions": {
+    "colorMeta": {
+      "signal-indigo": {
+        "role": "primary",
+        "displayName": "Signal Indigo",
+        "canonical": "oklch(58% 0.2 264)",
+        "tonalRamp": ["#1a1640", "#221b6e", "#3730a3", "#4f46e5", "#6366f1", "#818cf8", "#a5b4fc", "#e0e7ff"]
+      },
+      "accent-cyan": {
+        "role": "secondary",
+        "displayName": "Terminal Cyan",
+        "canonical": "oklch(83% 0.15 200)",
+        "tonalRamp": ["#062830", "#0f4a5a", "#0e7490", "#06b6d4", "#22d3ee", "#67e8f9", "#a5f3fc", "#e0f7fa"]
+      },
+      "bg-void": {
+        "role": "neutral",
+        "displayName": "Void Black",
+        "canonical": "oklch(4% 0.02 264)",
+        "tonalRamp": ["#06060e", "#0d0d1a", "#111120", "#16162a", "#1e1e35", "#2d2d50", "#494970", "#6b6b8a"]
+      },
+      "bg-depth": {
+        "role": "neutral",
+        "displayName": "Depth Navy",
+        "canonical": "oklch(8% 0.02 264)",
+        "tonalRamp": ["#06060e", "#0d0d1a", "#111120", "#16162a", "#1e1e35", "#2d2d50", "#494970", "#6b6b8a"]
+      },
+      "surface": {
+        "role": "neutral",
+        "displayName": "Surface Slate",
+        "canonical": "oklch(10% 0.025 264)",
+        "tonalRamp": ["#06060e", "#0d0d1a", "#111120", "#16162a", "#1e1e35", "#2d2d50", "#494970", "#6b6b8a"]
+      },
+      "surface-hover": {
+        "role": "neutral",
+        "displayName": "Surface Hover",
+        "canonical": "oklch(12% 0.025 264)",
+        "tonalRamp": ["#06060e", "#0d0d1a", "#111120", "#16162a", "#1e1e35", "#2d2d50", "#494970", "#6b6b8a"]
+      },
+      "border-subtle": {
+        "role": "neutral",
+        "displayName": "Border Subtle",
+        "canonical": "oklch(16% 0.025 264)",
+        "tonalRamp": ["#06060e", "#0d0d1a", "#111120", "#16162a", "#1e1e35", "#2d2d50", "#494970", "#6b6b8a"]
+      },
+      "ink-primary": {
+        "role": "neutral",
+        "displayName": "Ink Primary",
+        "canonical": "oklch(97% 0.005 230)",
+        "tonalRamp": ["#1e2330", "#2e3443", "#3e4555", "#475569", "#94a3b8", "#c4cdd8", "#e2e8f0", "#f1f5f9"]
+      },
+      "ink-secondary": {
+        "role": "neutral",
+        "displayName": "Ink Secondary",
+        "canonical": "oklch(67% 0.02 230)",
+        "tonalRamp": ["#1e2330", "#2e3443", "#3e4555", "#475569", "#94a3b8", "#c4cdd8", "#e2e8f0", "#f1f5f9"]
+      },
+      "ink-muted": {
+        "role": "neutral",
+        "displayName": "Ink Muted",
+        "canonical": "oklch(42% 0.02 230)",
+        "tonalRamp": ["#1e2330", "#2e3443", "#3e4555", "#475569", "#94a3b8", "#c4cdd8", "#e2e8f0", "#f1f5f9"]
+      }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Hero headings only. One per page. text-wrap: balance." },
+      "headline": { "displayName": "Headline", "purpose": "Section headings. No more than three per page. text-wrap: balance." },
+      "title": { "displayName": "Title", "purpose": "Card headings, modal titles, sidebar headings." },
+      "body": { "displayName": "Body", "purpose": "All prose. Cap at 65–75ch. line-height 1.65 (slightly higher than white-bg default for dark-bg readability)." },
+      "label": { "displayName": "Label", "purpose": "Button text, nav items, tags, captions. Not for extended reading." }
+    },
+    "shadows": [
+      {
+        "name": "hover-glow",
+        "value": "0 0 30px rgba(99, 102, 241, 0.15)",
+        "purpose": "Interactive cards at hover state only. Confirms interactivity. Never on resting elements."
+      },
+      {
+        "name": "cta-glow",
+        "value": "0 0 30px rgba(99, 102, 241, 0.3)",
+        "purpose": "Primary CTA buttons. Persistent (not just hover). One instance per section maximum."
+      }
+    ],
+    "motion": [
+      {
+        "name": "ease-out-expo",
+        "value": "cubic-bezier(0.16, 1, 0.3, 1)",
+        "purpose": "Default easing for state transitions. Natural deceleration."
+      },
+      {
+        "name": "duration-fast",
+        "value": "150ms",
+        "purpose": "Hover color and opacity changes."
+      },
+      {
+        "name": "duration-standard",
+        "value": "200ms",
+        "purpose": "Component transitions: cards, nav, accordions."
+      },
+      {
+        "name": "duration-slow",
+        "value": "300ms",
+        "purpose": "Page-level transitions, reveal animations."
+      }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" },
+      { "name": "2xl", "value": "1536px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Primary call-to-action. Solid Signal Indigo — no gradient. Used for decisive actions.",
+      "html": "<button class=\"ds-btn-primary\">Start a project <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><path d=\"M5 12h14M12 5l7 7-7 7\"/></svg></button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; background: #6366f1; color: #f1f5f9; font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; border-radius: 12px; border: none; cursor: pointer; transition: background 0.15s cubic-bezier(0.16,1,0.3,1), transform 0.15s cubic-bezier(0.16,1,0.3,1); text-decoration: none; white-space: nowrap; } .ds-btn-primary:hover { background: #4f46e5; transform: translateY(-1px); } .ds-btn-primary:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; } .ds-btn-primary:active { transform: translateY(0); background: #4338ca; } @media (prefers-reduced-motion: reduce) { .ds-btn-primary { transition: background 0.15s; } .ds-btn-primary:hover { transform: none; } }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action. Transparent with Border Subtle stroke. Border shifts to Signal Indigo on hover.",
+      "html": "<button class=\"ds-btn-ghost\">View our work <svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polygon points=\"5 3 19 12 5 21 5 3\"/></svg></button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 14px 24px; background: transparent; color: #f1f5f9; font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 600; border-radius: 12px; border: 1px solid #1e1e35; cursor: pointer; transition: background 0.15s ease-out, border-color 0.15s ease-out; text-decoration: none; white-space: nowrap; } .ds-btn-ghost:hover { background: rgba(255,255,255,0.05); border-color: #6366f1; } .ds-btn-ghost:focus-visible { outline: 2px solid #6366f1; outline-offset: 2px; } @media (prefers-reduced-motion: reduce) { .ds-btn-ghost { transition: none; } }"
+    },
+    {
+      "name": "Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Tonal panel for parallel-comparison content. Flat at rest; Hover Glow on interaction.",
+      "html": "<div class=\"ds-card\"><h3 class=\"ds-card-title\">Engagement Title</h3><p class=\"ds-card-body\">Supporting description of the engagement scope and what it delivers for the client.</p></div>",
+      "css": ".ds-card { background: #111120; border: 1px solid #1e1e35; border-radius: 16px; padding: 32px; transition: background 0.2s ease-out, box-shadow 0.2s ease-out; } .ds-card:hover { background: #16162a; box-shadow: 0 0 30px rgba(99,102,241,0.15); } .ds-card-title { font-family: Geist, system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; color: #f1f5f9; line-height: 1.3; margin: 0 0 12px; } .ds-card-body { font-family: Geist, system-ui, sans-serif; font-size: 1rem; font-weight: 400; color: #94a3b8; line-height: 1.65; margin: 0; max-width: 65ch; } @media (prefers-reduced-motion: reduce) { .ds-card { transition: none; } }"
+    },
+    {
+      "name": "Featured Card",
+      "kind": "card",
+      "refersTo": "card",
+      "description": "Recommended or primary-tier card. Distinguished by Signal Indigo top-border accent. Never a side-stripe.",
+      "html": "<div class=\"ds-card-featured\"><span class=\"ds-card-featured-label\">Recommended</span><h3 class=\"ds-card-title\">Build Partnership</h3><p class=\"ds-card-body\">Dedicated team for a 3–12 month product build. Weekly delivery, always releasable.</p></div>",
+      "css": ".ds-card-featured { background: #111120; border: 1px solid #1e1e35; border-top: 3px solid #6366f1; border-radius: 16px; padding: 32px; transition: background 0.2s ease-out, box-shadow 0.2s ease-out; } .ds-card-featured:hover { background: #16162a; box-shadow: 0 0 30px rgba(99,102,241,0.2); } .ds-card-featured-label { display: inline-block; font-family: Geist, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; color: #818cf8; margin-bottom: 16px; } .ds-card-title { font-family: Geist, system-ui, sans-serif; font-size: 1.25rem; font-weight: 600; color: #f1f5f9; line-height: 1.3; margin: 0 0 12px; } .ds-card-body { font-family: Geist, system-ui, sans-serif; font-size: 1rem; color: #94a3b8; line-height: 1.65; margin: 0; } @media (prefers-reduced-motion: reduce) { .ds-card-featured { transition: none; } }"
+    },
+    {
+      "name": "Feature Tag",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Technology labels, engagement type tags, capability indicators. Pill-shaped, tinted.",
+      "html": "<span class=\"ds-tag\">Next.js</span> <span class=\"ds-tag ds-tag-cyan\">TypeScript</span>",
+      "css": ".ds-tag { display: inline-flex; align-items: center; padding: 4px 10px; background: rgba(99,102,241,0.1); color: #818cf8; border: 1px solid rgba(99,102,241,0.25); border-radius: 9999px; font-family: Geist, system-ui, sans-serif; font-size: 0.75rem; font-weight: 500; white-space: nowrap; } .ds-tag-cyan { background: rgba(34,211,238,0.1); color: #22d3ee; border-color: rgba(34,211,238,0.25); }"
+    },
+    {
+      "name": "Navigation",
+      "kind": "nav",
+      "refersTo": "button-ghost",
+      "description": "Fixed header. Transparent at rest; tonal blur once user scrolls past 20px.",
+      "html": "<header class=\"ds-nav\"><div class=\"ds-nav-inner\"><a href=\"/\" class=\"ds-nav-logo\"><div class=\"ds-nav-logo-mark\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"white\" stroke-width=\"2\"><polyline points=\"16 18 22 12 16 6\"/><polyline points=\"8 6 2 12 8 18\"/></svg></div><span>TechCorp</span></a><nav class=\"ds-nav-links\"><a href=\"#services\" class=\"ds-nav-link\">Services</a><a href=\"#about\" class=\"ds-nav-link\">About</a><a href=\"/pricing\" class=\"ds-nav-link\">Pricing</a></nav><a href=\"#contact\" class=\"ds-btn-primary\" style=\"padding:10px 20px;font-size:0.8125rem;\">Get started</a></div></header>",
+      "css": ".ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 50; background: transparent; transition: background 0.3s ease-out, border-color 0.3s ease-out; } .ds-nav.scrolled { background: rgba(6,6,14,0.9); backdrop-filter: blur(12px); border-bottom: 1px solid #1e1e35; } .ds-nav-inner { max-width: 1280px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 32px; } .ds-nav-logo { display: flex; align-items: center; gap: 8px; text-decoration: none; } .ds-nav-logo-mark { width: 32px; height: 32px; border-radius: 8px; background: #6366f1; display: flex; align-items: center; justify-content: center; } .ds-nav-logo span { font-family: Geist, system-ui, sans-serif; font-size: 1.125rem; font-weight: 700; color: #f1f5f9; } .ds-nav-links { display: flex; align-items: center; gap: 32px; } .ds-nav-link { font-family: Geist, system-ui, sans-serif; font-size: 0.875rem; font-weight: 500; color: #94a3b8; text-decoration: none; transition: color 0.15s ease-out; } .ds-nav-link:hover { color: #f1f5f9; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Precision Layer",
+    "overview": "This is an engineering-first brand surface — a company whose credibility comes from doing precise, rigorous work, and whose interface must embody that character without announcing it. The system is a dark, dense environment with high ink contrast and minimal decoration: near-black backgrounds layered in tonal steps, a single structural accent color (Signal Indigo), and typography that does nearly all the communicative work. Nothing performs confidence; the restraint is the confidence.\n\nThe system explicitly rejects the saturated AI-generated agency aesthetic: particle canvas heroes, gradient text, indigo-to-cyan tinted stat cards, eyebrow pill labels above every section, and glassmorphism used as atmosphere. Those patterns signal that a site was generated in 45 seconds. This system signals that it was built by people who understand the difference.\n\nThe target context is a CTO at a mid-to-large company, doing focused vendor evaluation. The interface should feel like a well-produced technical document, not a pitch deck.",
+    "keyCharacteristics": [
+      "Dark-to-void backgrounds layered tonally, not illuminated decoratively",
+      "Signal Indigo appears only where a decision can be made or attention is structurally required",
+      "Type hierarchy carries full communicative weight; decoration does not assist it",
+      "Flat surfaces with functional glow-on-elevation, never ambient shadows",
+      "No gradient text; no rounded-icon-above-every-heading; no eyebrow labels as grammatical scaffolding",
+      "Geist Sans across all roles — one family, committed weight contrast"
+    ],
+    "rules": [
+      {
+        "name": "The Signal Rule",
+        "body": "Signal Indigo is a functional material, not a brand color. It appears on ≤10% of any given screen surface. If it appears everywhere, it signals nothing.",
+        "section": "colors"
+      },
+      {
+        "name": "The Muted Ceiling Rule",
+        "body": "Ink Muted (#475569) is prohibited for body copy and meaningful descriptive text. It passes 4.5:1 only against Void Black — nowhere else. Use Ink Secondary (#94a3b8) for supporting text on Surface Slate or deeper.",
+        "section": "colors"
+      },
+      {
+        "name": "The Single Family Rule",
+        "body": "Geist Sans is the only display and body typeface in this system. Geist Mono is permitted for genuinely code-shaped content. Adding a second display family is prohibited.",
+        "section": "typography"
+      },
+      {
+        "name": "The Gradient Text Prohibition",
+        "body": "background-clip: text combined with any gradient is absolutely forbidden. Emphasis is expressed through weight contrast (400 → 700) and size ratio (≥1.25× between steps). Never through decoration.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat-By-Default Rule",
+        "body": "Surfaces are flat at rest. No ambient shadows, no tonal lift, no glow on non-interactive elements. Depth comes from the tonal background stack. Shadows are reserved for interaction state confirmation.",
+        "section": "elevation"
+      },
+      {
+        "name": "The No Ambient Shadow Rule",
+        "body": "box-shadow values that appear on .card or .section elements at rest (not :hover, not :focus) are prohibited. If you feel the need for an ambient shadow, the tonal background values are not contrasting enough — fix those instead.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do use Signal Indigo (#6366f1) on ≤10% of any screen surface. Its rarity is its meaning.",
+      "Do use the tonal background stack (bg-void → bg-depth → surface) to create depth without shadows.",
+      "Do apply the Hover Glow (0 0 30px rgba(99,102,241,0.15)) only at interactive card hover — never at rest.",
+      "Do write button labels as verb + object: 'Start a project', 'View case studies', 'Discuss your engagement'.",
+      "Do cap body line length at 65–75ch using max-width on text containers.",
+      "Do use text-wrap: balance on Display and Headline, text-wrap: pretty on Body prose.",
+      "Do distinguish the recommended card tier with border-top: 3px solid #6366f1, not a side-stripe border.",
+      "Do test Ink Secondary (#94a3b8) contrast before using: it passes 4.5:1 only against Surface Slate and deeper.",
+      "Do use Geist Mono exclusively for code-shaped content. Never for style.",
+      "Do respect prefers-reduced-motion: every transition must have an instant-swap alternative."
+    ],
+    "donts": [
+      "Don't use background-clip: text with any gradient. Gradient text is absolutely forbidden.",
+      "Don't use the current linear-gradient(135deg, #6366f1, #4f46e5) button background. Solid Signal Indigo only.",
+      "Don't put a small uppercase tracked eyebrow pill above every section heading. One deliberate badge is voice; one on every heading is AI grammar.",
+      "Don't use the hero-metric template: large numbers (200+, 50+, 8+) with small labels and gradient tints.",
+      "Don't build identical card grids (same-sized cards with icon + heading + body text, repeated without visual variation).",
+      "Don't use a particle canvas or animated background field as a hero backdrop.",
+      "Don't use border-left or border-right greater than 1px as a colored card accent (side-stripe).",
+      "Don't use Ink Muted (#475569) for body copy or meaningful descriptive text.",
+      "Don't place ambient box-shadow on cards or sections at rest. Shadows appear only at hover/focus.",
+      "Don't add a second typeface family as a display font.",
+      "Don't build glassmorphism panels (backdrop-filter: blur + semi-transparent bg) as the default card pattern."
+    ]
+  }
+}
